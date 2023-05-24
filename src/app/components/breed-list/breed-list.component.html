@@ -1,0 +1,36 @@
+<div class="container mx-auto mb-32">
+  <p class="mb-6">
+    Showing
+    {{ (managerPage.pageIndex - 1) * managerPage.pageSize + 1 }}-{{
+      managerPage.pageIndex * managerPage.pageSize
+    }}
+    of {{ managerPage.total }} dogs
+  </p>
+
+  <div class="breeds__list grid grid-cols-3 gap-6">
+    <ng-container *ngFor="let item of managerPage.items">
+      <div class="breeds__list__item border pb-4">
+        <a
+          routerLink="/gallery/{{ item.breed }}"
+          [queryParams]="{
+            sub: item.subBreeds.length === 1 ? item.subBreeds[0] : ''
+          }"
+        >
+          <app-breed-img
+            className="breeds__list__img mb-5"
+            [breed]="item.imgPath"
+          ></app-breed-img>
+        </a>
+
+        <div class="px-4">
+          <h4 class="text-center title font-bold text-xl">
+            {{ item.breed }}
+          </h4>
+          <div class="flex justify-center text-primary flex-wrap gap-x-3">
+            <p *ngFor="let sub of item.subBreeds">{{ sub }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

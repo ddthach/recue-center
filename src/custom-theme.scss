@@ -1,0 +1,33 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$rescue-center-primary: mat.define-palette(mat.$green-palette, 900);
+$rescue-center-accent: mat.define-palette(mat.$orange-palette, 800);
+$rescue-center-warn: mat.define-palette(mat.$red-palette);
+
+$rescue-center-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $rescue-center-primary,
+      accent: $rescue-center-accent,
+      warn: $rescue-center-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($rescue-center-theme);
+
+.light-color {
+  $rescue-center-primary: mat.define-palette(mat.$grey-palette, A100);
+  $rescue-center-theme: mat.define-light-theme(
+    (
+      color: (
+        primary: $rescue-center-primary,
+        accent: $rescue-center-accent,
+        warn: $rescue-center-warn,
+      ),
+    )
+  );
+  @include mat.all-component-themes($rescue-center-theme);
+}
