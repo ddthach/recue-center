@@ -23,7 +23,7 @@
               [value]="selectedBreed"
               (selectionChange)="onChangeBreed($event)"
             >
-              <mat-option>None</mat-option>
+              <mat-option>All</mat-option>
               <mat-option *ngFor="let item of breeds" [value]="item">{{
                 item
               }}</mat-option>
@@ -37,7 +37,7 @@
           >
             <mat-label>Sub Breed</mat-label>
             <mat-select [(value)]="selectedSubBreeds">
-              <mat-option>None</mat-option>
+              <mat-option>All</mat-option>
               <mat-option *ngFor="let item of subBreeds" [value]="item">{{
                 item
               }}</mat-option>
